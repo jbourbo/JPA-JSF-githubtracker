@@ -1,7 +1,4 @@
-<%@ page import="fr.wildcodeschool.githubtracker.model.Githuber" language="java" %>
-<%@ page import="java.util.List" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--
   Created by IntelliJ IDEA.
   User: julien
@@ -12,19 +9,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp" %>
 <div class="container">
-<ul class="list-group">
-<%
 
-    String result = "";
-    for(Githuber g: (List<Githuber>)request.getAttribute("githubers")){
-        String tmp = "<li class=\"list-group-item\">";
-        tmp += g.getName();
-        tmp +=  "</li><br>";
-        out.println(tmp);
-
-    }
-%>
-</ul>
+    <h2>Githubers Table</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Login</th>
+            <th>Avatar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${githubers}" var="githuber">
+            <tr>
+                <td><c:out value="${githuber.id}" /></td>
+                <td><c:out value="${githuber.name}" /></td>
+                <td><c:out value="${githuber.email}" /></td>
+                <td><c:out value="${githuber.login}" /></td>
+                <td><img src="<c:out value="${githuber.avatarUrl}" />" alt="github picture" style="width: 100px;height: 100px;"></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

@@ -7,6 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
  <%@include file="header.jsp" %>
-    <h1>Hello JSP</h1>
+    <a href="/githubers"><h1>Click me to see the list of githubers</h1></a>
 </body>
 </html>
