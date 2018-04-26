@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <style type="text/css">
         <%@include file="bootstrap/css/bootstrap.css" %>
-        <%@include file="bootstrap/css/bootstrap-theme.css" %>
+        <%@include file="bootstrap/css/bootstrap-theme.min.css" %>
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%--<script src="bootstrap/js/jquery.js"></script>--%>
@@ -19,7 +19,7 @@
 </head>
 <body>
 <!-- Image and text -->
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-inverse bg-light">
     <span class="navbar-brand" href="#">
         <img src="/images/java.png" width="30" height="30" class="d-inline-block align-top" alt="">
     </span>
