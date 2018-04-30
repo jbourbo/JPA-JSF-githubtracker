@@ -1,5 +1,11 @@
 package fr.wildcodeschool.githubtracker.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Data;
+
+@Data
 public class Githuber {
 
     //name, email, login, id et avatarUrl.
@@ -47,6 +53,16 @@ public class Githuber {
         this.avatarUrl = avatarUrl;
     }
 
+    @JsonCreator
+    public Githuber(@JsonProperty("id") Long id, @JsonProperty("name") String name, @JsonProperty("email") String email, @JsonProperty("login") String login, @JsonProperty("avatar_url") String avatarUrl) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.login = login;
+        this.avatarUrl = avatarUrl;
+    }
+
+    /*
     public Githuber(Long id, String name, String email, String login, String avatarUrl) {
         this.id = id;
         this.name = name;
@@ -54,4 +70,5 @@ public class Githuber {
         this.login = login;
         this.avatarUrl = avatarUrl;
     }
+    */
 }
