@@ -49,7 +49,7 @@ public class GitHubUtils {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
             throw new RuntimeException(e);
         }
-        
+
         return githuber;
 
     }
