@@ -24,4 +24,5 @@
         <img src="/images/java.png" width="30" height="30" class="d-inline-block align-top" alt="">
     </span>
     <span class="navbar-brand align-top h5">Hello Githubers</span>
+    <span class="navbar-brand pull-left h5">Hello Githubers</span>
 </nav>
