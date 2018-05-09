@@ -19,7 +19,7 @@ public class GitHubUtils {
     @Inject
     private ObjectMapper om;
 
-    private static final Logger LOGGER = Logger.getLogger( GitHubUtils.class.getName() );
+//    private static final Logger LOGGER = Logger.getLogger( GitHubUtils.class.getName() );
 
     public Githuber parseGithuber(String login){
 
@@ -41,12 +41,12 @@ public class GitHubUtils {
             System.out.println(githuber.getLogin());
         }
         catch(MalformedURLException e){
-            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+//            LOGGER.log(Level.SEVERE, e.getMessage(), e);
             throw new RuntimeException(e);
 
         }
         catch(IOException e){
-            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+//            LOGGER.log(Level.SEVERE, e.getMessage(), e);
             throw new RuntimeException(e);
         }
 

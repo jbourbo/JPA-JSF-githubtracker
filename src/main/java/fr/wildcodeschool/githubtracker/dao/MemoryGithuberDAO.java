@@ -40,7 +40,7 @@ public class MemoryGithuberDAO implements GithuberDAO, Serializable {
 
          return githubersList;
 
-    };
+    }
 
 
     public void saveGithuber(Githuber githuber){

@@ -11,8 +11,11 @@ public class Githuber {
     //name, email, login, id et avatarUrl.
     Long id;
     String name;
-    String email;
     String login;
+    String url;
+    String email;
+    String bio;
+    String location;
     String avatarUrl;
 
     public Long getId() {
@@ -53,12 +56,40 @@ public class Githuber {
         this.avatarUrl = avatarUrl;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     @JsonCreator
-    public Githuber(@JsonProperty("id") Long id, @JsonProperty("name") String name, @JsonProperty("email") String email, @JsonProperty("login") String login, @JsonProperty("avatar_url") String avatarUrl) {
+    public Githuber(@JsonProperty("id") Long id, @JsonProperty("name") String name, @JsonProperty("login") String login, @JsonProperty("url") String url, @JsonProperty("email") String email, @JsonProperty("bio") String bio, @JsonProperty("location") String location, @JsonProperty("avatar_url") String avatarUrl) {
         this.id = id;
         this.name = name;
-        this.email = email;
         this.login = login;
+        this.url = url;
+        this.email = email;
+        this.bio = bio;
+        this.location = location;
+
         this.avatarUrl = avatarUrl;
     }
 

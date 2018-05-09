@@ -1,6 +1,8 @@
 package fr.wildcodeschool.githubtracker.controller;
 
 import fr.wildcodeschool.githubtracker.dao.InMemory;
+import fr.wildcodeschool.githubtracker.dao.JDBCAnnot;
+import fr.wildcodeschool.githubtracker.dao.JDBCGithuberDAO;
 import fr.wildcodeschool.githubtracker.dao.MemoryGithuberDAO;
 
 
@@ -17,8 +19,8 @@ import java.util.List;
 @WebServlet(name = "TrackServlet", urlPatterns = {"/track"})
 public class TrackServlet  extends HttpServlet {
 
-    @Inject @InMemory
-    private MemoryGithuberDAO dao;
+    @Inject @JDBCAnnot
+    private JDBCGithuberDAO dao;
 
     @Inject
     private GitHubUtils ghu;

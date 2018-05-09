@@ -12,7 +12,6 @@
 </head>
 <body>
     <form action="${pageContext.request.contextPath}/track" enctype="application/x-www-form-urlencoded" method="post">
-        <p>${pageContext.request.contextPath}</p>
         <label>login:</label>
         <input name="login" type="text">
         <br/>

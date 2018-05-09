@@ -29,6 +29,10 @@
                 <td><c:out value="${githuber.email}" /></td>
                 <td><c:out value="${githuber.login}" /></td>
                 <td><img src="<c:out value="${githuber.avatarUrl}" />" alt="github picture" style="width: 100px;height: 100px;"></td>
+                <td><form action="${pageContext.request.contextPath}/delete" enctype="application/x-www-form-urlencoded" method="post">
+                    <input type="hidden" name="GithuberLogin" value="${githuber.login}">
+                    <button type="submit">Untrack</button>
+                </form></td>
             </tr>
         </c:forEach>
         </tbody>
