@@ -7,6 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
  <%@include file="header.jsp" %>
-    <a href="/githubers"><h1>Click me to see the list of githubers</h1></a>
+    <a href="${pageContext.request.contextPath}/githubers"><h1>Click me to see the list of githubers</h1></a>
 </body>
 </html>
