@@ -1,6 +1,5 @@
 package fr.wildcodeschool.githubtracker.dao;
 
-import fr.wildcodeschool.githubtracker.controller.GitHubUtils;
 import fr.wildcodeschool.githubtracker.model.Githuber;
 
 import javax.annotation.Resource;
@@ -11,8 +10,6 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.mysql.jdbc.Driver;
-import java.util.Properties;
 
 @ApplicationScoped
 @JDBCAnnot
@@ -52,7 +49,7 @@ public class JDBCGithuberDAO implements GithuberDAO, Serializable {
 
 
 
-    @Resource(lookup = "jdbc/ghtpool")
+    @Resource(lookup = "jdbc/githubtracker")
     private DataSource dataSource;
 
 
@@ -104,7 +101,7 @@ public class JDBCGithuberDAO implements GithuberDAO, Serializable {
                     try {
 
 
-                        String sqlSave = "INSERT INTO githuber (github_id , name, login, url, email, bio, location, avatar_url )VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+                        String sqlSave = "INSERT INTO githuber (github_id , name, login, email, avatar_url )VALUES ( ?, ?, ?, ?, ?);";
 
                         ps = conn.prepareStatement(sqlSave);
 
@@ -116,11 +113,8 @@ public class JDBCGithuberDAO implements GithuberDAO, Serializable {
                         }
                         ps.setString(2, githuber.getName());
                         ps.setString(3, githuber.getLogin());
-                        ps.setString(4, githuber.getUrl());
-                        ps.setString(5, githuber.getEmail());
-                        ps.setString(6, githuber.getBio());
-                        ps.setString(7, githuber.getLocation());
-                        ps.setString(8, githuber.getAvatarUrl());
+                        ps.setString(4, githuber.getEmail());
+                        ps.setString(5, githuber.getAvatarUrl());
 
                         ps.executeUpdate();
 
@@ -209,10 +203,7 @@ public class JDBCGithuberDAO implements GithuberDAO, Serializable {
                             rs.getLong("github_id"),
                             rs.getString("name"),
                             rs.getString("login"),
-                            rs.getString("url"),
                             rs.getString("email"),
-                            rs.getString("bio"),
-                            rs.getString("location"),
                             rs.getString("avatar_url")
                     );
 

@@ -24,5 +24,5 @@
         <img src="/images/java.png" width="30" height="30" class="d-inline-block align-top" alt="">
     </span>
     <span class="navbar-brand align-top h5">Hello Githubers</span>
-    <span class="navbar-brand pull-left h5"><a href="${pageContext.request.contextPath}/track.jsp"}>ADD NEW GITHUBER</a></span>
+    <span class="navbar-brand pull-left h5"><a href="${pageContext.request.contextPath}/faces/track.jsf"}>ADD NEW GITHUBER</a></span>
 </nav>

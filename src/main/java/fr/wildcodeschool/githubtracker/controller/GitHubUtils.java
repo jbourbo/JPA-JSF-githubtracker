@@ -63,6 +63,7 @@ public class GitHubUtils {
             if(doesURLExist(url)){
                 githuber = om.readValue(url, Githuber.class);
                 System.out.println(githuber.getLogin());
+
             }else{
                 LOGGER.log(Level.SEVERE, "This githuber does not exist!");
             }

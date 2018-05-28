@@ -3,6 +3,7 @@ package fr.wildcodeschool.githubtracker.controller;
 import fr.wildcodeschool.githubtracker.dao.GithuberDAO;
 import fr.wildcodeschool.githubtracker.dao.InMemory;
 import fr.wildcodeschool.githubtracker.dao.JDBCAnnot;
+import fr.wildcodeschool.githubtracker.dao.Jpa;
 import fr.wildcodeschool.githubtracker.model.Githuber;
 import fr.wildcodeschool.githubtracker.model.GithubersService;
 
@@ -20,7 +21,7 @@ public class GithubersController {
     private static final Logger LOGGER = Logger.getLogger( GithubersController.class.getName() );
 
     @Inject
-    @JDBCAnnot
+    @Jpa
     GithuberDAO dao;
 
     @Inject
