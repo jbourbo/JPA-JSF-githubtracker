@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="pageTitle">
+                <h:outputText value="Track a Githuber"/>
+            </ui:define>
+
+            <ui:define name="contents">
+                <h2>Enter your credentials</h2>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel for="login" value="The githuber ID:"/>
+                        <h:inputText id="login" value="#{trackController.login}" styleClass="form-control" size="39" maxlength="39" required="true">
+                            <f:validateRequired/>
+                            <f:validateLength maximum="39"/>
+                            <f:validateRegex pattern="[a-zA-Z0-9][a-zA-Z0-9\-]*"/>  <!-- regexp: only alphanumeric and dash from the second char -->
+                        </h:inputText>
+                    </h:panelGrid>
+                    <h:commandButton value="Follow githuber" action="#{trackController.track}"/>
+                </h:form>
+            </ui:define>
+            <h:messages/>
+
+        </ui:composition>
+    </h:body>
+</f:view>
+</html>

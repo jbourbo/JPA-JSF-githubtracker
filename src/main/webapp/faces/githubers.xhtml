@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view contentType="text/html" encoding="UTF-8" locale="fr">
+
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="pageTitle">
+                <h:outputText value="All our Githubers"/>
+            </ui:define>
+
+                <ui:define name="contents">
+                    <h:panelGroup id="githubersList">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>UID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Github ID</th>
+                            <th>Github Picture</th>
+                            <th>Delete ?</th>
+                        </tr>
+
+                            <ui:repeat value="#{githubersController.allGithubers}" var="githuber">
+                                <tr>
+                                    <td>#{githuber.id}</td>
+                                    <td>#{githuber.name}</td>
+                                    <td>#{githuber.email}</td>
+                                    <td>#{githuber.login}</td>
+                                    <td><h:graphicImage styleClass="githuber_image" value="#{githuber.avatarUrl}" alt="#{githuber.name}" /></td>
+                                    <td>
+                                        <h:form>
+                                            <h:commandButton styleClass="btn btn-outline-danger btn-sm" value="Untrack">
+                                                <f:ajax listener="#{githubersController.untrack(githuber.id)}" render="githubersList"/>
+                                            </h:commandButton>
+                                        </h:form>
+                                    </td>
+                                </tr>
+                            </ui:repeat>
+
+                    </table>
+                    </h:panelGroup>
+                </ui:define>
+
+        </ui:composition>
+    </h:body>
+</f:view>
+</html>

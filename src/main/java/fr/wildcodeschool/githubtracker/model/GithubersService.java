@@ -1,6 +1,7 @@
 package fr.wildcodeschool.githubtracker.model;
 
 
+import fr.wildcodeschool.githubtracker.controller.GitHubUtils;
 import fr.wildcodeschool.githubtracker.dao.GithuberDAO;
 import fr.wildcodeschool.githubtracker.dao.InMemory;
 import fr.wildcodeschool.githubtracker.dao.JDBCAnnot;
@@ -21,10 +22,28 @@ public class GithubersService implements Serializable {
     @Inject @JDBCAnnot
     private JDBCGithuberDAO jdao;
 
+    @Inject
+    GitHubUtils ghu;
+
 
     public List<Githuber> getGithubers() {
 
             return jdao.getGithubers();
+
+
+    }
+
+
+    public boolean addGithuber(String login) {
+
+        Githuber newGithuber = ghu.parseGithuber(login);
+
+        if(newGithuber != null){
+            jdao.saveGithuber(newGithuber);
+            return true;
+        }else{
+            return false;
+        }
 
 
     }
@@ -34,4 +53,7 @@ public class GithubersService implements Serializable {
     }
 
 
+    public void deleteGithuber(long id){
+        jdao.deleteGithuber(id);
+    }
 }

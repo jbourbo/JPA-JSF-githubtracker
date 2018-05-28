@@ -301,4 +301,56 @@ public class JDBCGithuberDAO implements GithuberDAO, Serializable {
         }//end try
     }// end function
 
+
+
+    public void deleteGithuber(long id){
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try{
+
+            //STEP 2: Register JDBC driver
+            Class.forName("com.mysql.jdbc.Driver");
+
+            //STEP 3: Open a connection
+            System.out.println("Connecting to database...");
+//            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/githubtracker?useSSL=false&user=julien&password=wild&useUnicode=true&amp;serverTimezone=CET");
+            conn = dataSource.getConnection();
+            //STEP 4: Execute a query
+            System.out.println("Creating statement...");
+
+            String sql =  "DELETE FROM githuber WHERE github_id = ?;";
+
+            ps = conn.prepareStatement(sql);
+
+            ps.setLong(1, id);
+
+            // execute update SQL stetement
+            ps.executeUpdate();
+
+
+        } catch (SQLException se) {
+            //Handle errors for JDBC
+            se.printStackTrace();
+        }
+        catch (Exception e) {
+            //Handle errors for JDBC
+            e.printStackTrace();
+
+        }finally{
+            //finally block used to close resources
+            try{
+                if(ps!=null)
+                    ps.close();
+            }catch(SQLException se2){
+            }// nothing we can do
+            try{
+                if(conn!=null)
+                    conn.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+    }// end function
+
 }
